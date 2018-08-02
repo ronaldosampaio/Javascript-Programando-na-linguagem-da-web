@@ -8,7 +8,31 @@ O navegador, ao ler o seu arquivo HTML, cria uma cópia em memória daquele HTML
 Por isso, quando dizemos que com o Javascript nós estamos manipulando o DOM, estamos manipulando o que o navegador renderizou. Então ao trocar algum texto do DOM, o navegador imediatamente desenha novamente aquele texto, pois o DOM é o que o navegador usa para desenhar o seu site.
 
 var titulo = document.querySelector(".titulo") -> faz pesquisa dentro da tag html e retorna o conteudo
+
+querySelectorAll("classe-ou-id"); selecionar todos elementos de uma lista ou tabela de uma vez
+
 titulo.textContent; -> Retorna apenas o que está dentro de <h1>
+
 titulo.textContent = "Outro valor"; -> retorna o valor da tag <h1> com o valor modificado
 
+.classList[0] = mostra lista de classes dentro de uma tag;
+A boa prática de não alterar o estilo diretamente no Javascript e sim modificar as classes dos elementos com a propriedade .classList
+
+paciente.classList.add("classe css"); -> adiciona uma class do css
+
 document.querySelector(".titulo").textContent = "outro titulo"; -> pesquisa e altera tudo na mesma linha;
+
+.textContent="altera o valor"; -> altera o valor de querySelector()
+
+.toFixed(2); altera a quantidade de casas decimais começando com 0
+
+var trCompleta = document.querySelector("#primeiro-paciente");
+console.log("Tr completa:",trCompleta);
+
+var tdDentroPaciente= trCompleta=document.querySelector(".info-peso");
+console.log("Td dentro de paciente:",tdDentroPaciente);
+
+var resultadoTdDentroPaciente = tdDentroPaciente.textContent;
+console.log("Valor dentro de paciente:", resultadoTdDentroPaciente);
+
+
