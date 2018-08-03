@@ -35,4 +35,17 @@ console.log("Td dentro de paciente:",tdDentroPaciente);
 var resultadoTdDentroPaciente = tdDentroPaciente.textContent;
 console.log("Valor dentro de paciente:", resultadoTdDentroPaciente);
 
+Funçao do click nomeada e anonima:
+titulo.addEventListener("click", mostrarMensagem);
 
+titulo.addEventListener("click", function(){
+    console.log("Funçao anonima");
+});
+
+function mostrarMensagem(){
+    console.log("Funçao nomeada!");
+}
+
+event.preventDefault(); =  prevenindo o comportamento padrao do evento dos usuarios do browser sem dar refresh na pagina
+
+appendChild("tr"); =  Ela adiciona como filho o elemento passado a ela como parâmetro. Logo, vamos chamar essa função na tr, passando a td como parâmetro, uma por uma:
