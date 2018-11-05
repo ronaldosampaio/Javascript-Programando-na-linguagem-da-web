@@ -15,6 +15,8 @@ titulo.textContent; -> Retorna apenas o que está dentro de <h1>
 
 titulo.textContent = "Outro valor"; -> retorna o valor da tag <h1> com o valor modificado
 
+document.createElement('li'); = cria elemento no html
+
 .classList[0] = mostra lista de classes dentro de uma tag;
 A boa prática de não alterar o estilo diretamente no Javascript e sim modificar as classes dos elementos com a propriedade .classList
 
@@ -49,3 +51,54 @@ function mostrarMensagem(){
 event.preventDefault(); =  prevenindo o comportamento padrao do evento dos usuarios do browser sem dar refresh na pagina
 
 appendChild("tr"); =  Ela adiciona como filho o elemento passado a ela como parâmetro. Logo, vamos chamar essa função na tr, passando a td como parâmetro, uma por uma:
+
+event.target = Ele irá dizer que foi clicado e quem foi o alvo
+
+parentNode = acessa o elemento pai da li ou table
+Exemplo:
+document.querySelector(".elementosClass").parentNode
+--------------------------------------------------------------------------------------------------------------------
+Expresao regular:
+var expressao =  new RegExp(this.value, "i");
+var expressao = new RegExp(O primeiro parâmetro é o padrão o texto da expressão regular, o que deve ser buscado, o segundo parâmetro são uma ou mais flags representando como queremos que a expressão regular busque);
+
+Por exemplo, podemos definir que não queremos que haja distinção entre letras maiúsculas e minúsculas, através da flag i.O modificador "i" é para indicar que estamos buscando por case-insensitive, ou seja tanto "Pa" quanto "pa" achariam a palavra "Paulo", ele não liga para a diferença entre maísuculas e minúsculas.
+
+O terceiro vamos pedir para a expressão regular verificar se um pedaço do nome do paciente possui as letras digitadas no campo de busca.Usando método test(nome) com o parametro.
+
+Com a expressão regular em mãos, só precisamos pedir para ela testar se o nome do usuário bate com o que foi digitado. Para isto, vamos utilizar sua função .test, que em caso positivo deve exibir o paciente removendo a sua classe invisivel, e em caso negativo deve esconder o paciente adicionando a classe invisivel.
+
+Mas há um modo de fazer essa comparação sem a necessidade de utilizar expressões regulares! Podemos utilizar a função substr, que recebe dois parâmetros, fazendo com que ela devolva parte da string, com o tamanho definido nos parâmetros. O primeiro parâmetro é o início, começando do 0 (que representa o primeiro caractere). O segundo parâmetro define o fim (exclusivo, mostramos até o penúltimo caractere). Por exemplo:
+
+var string = "Alura";
+var resultado = string.substr(1, 4);
+Extraímos uma string que começa no segundo caractere (número 1) e termina no quarto caractere (número 3, índice anterior ao número 4). O valor da variável resultado é:
+lura
+
+Como o primeiro parâmetro é o inicio, e queremos comparar desde o início da string nome, vamos utilizar como início o valor 0, ou seja, sempre a partir do primeiro caractere. Mas qual é o fim? O fim é justamente o tamanho do valor digitado:
+
+nome.substr(0, this.value.length);
+Podemos guardar essa string em uma variável, e compará-la com o que está sendo digitado. Caso seja falso, adicionamos a classe invisivel, se não for, removemos-a:
+var comparavel = nome.substr(0, this.value.length);
+if (!(this.value == comparavel)) {
+    paciente.classList.add("invisivel");
+} else{
+    paciente.classList.remove("invisivel");
+}
+
+Mas e a distinção entre letras maiúsculas e minúsculas? Nesse caso não temos distinção entre letras maiúsculas e minúsculas, mas para contornar isso, antes de compará-las, podemos colocar as duas strings em letras minúsculas, para efetuar a comparação entre elas em seguida:
+
+var comparavel = nome.substr(0, this.value.length);
+var comparavelMinusculo = comparavel.toLowerCase();
+var valorDigitadoMinusculo = this.value.toLowerCase();
+
+if (!(valorDigitadoMinusculo == comparavelMinusculo)) {
+    paciente.classList.add("invisivel");
+} else{
+    paciente.classList.remove("invisivel");
+}
+Esta é uma alternativa de implementar a mesma funcionalidade sem expressão regular, porém temos que escrever mais e nos preocupar com mais detalhes! Fica ai esta opção para você guardar nos seus conhecimentos.
+
+
+
+
