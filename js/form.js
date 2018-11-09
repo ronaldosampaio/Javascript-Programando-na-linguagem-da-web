@@ -19,6 +19,8 @@ botaoAdicionar.addEventListener("click", function(event) {
     var tabela = document.querySelector("#tabela-pacientes");
 
     tabela.appendChild(pacienteTr);
+    
+    //adicionaPacienteNaTabela(paciente);
 
     form.reset();
 
@@ -36,7 +38,7 @@ function obtemPacienteDoFormulario(form) {
         gordura: form.gordura.value,
         imc: calculaImc(form.peso.value, form.altura.value)
     }
-
+    console.log("função obtemPacienteDoFormulario()")
     return paciente;
 }
 
@@ -59,6 +61,11 @@ function montaTd(dado, classe) {
     td.textContent = dado;
 
     return td;
+}
+function adicionaPacienteNaTabela(paciente) {
+    var pacienteTr = montaTr(paciente);
+    var tabela = document.querySelector("#tabela-pacientes");
+    tabela.appendChild(pacienteTr);
 }
 
 function validaPaciente(paciente) {

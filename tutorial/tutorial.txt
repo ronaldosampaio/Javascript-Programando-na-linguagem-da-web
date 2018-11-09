@@ -100,5 +100,3 @@ if (!(valorDigitadoMinusculo == comparavelMinusculo)) {
 Esta é uma alternativa de implementar a mesma funcionalidade sem expressão regular, porém temos que escrever mais e nos preocupar com mais detalhes! Fica ai esta opção para você guardar nos seus conhecimentos.
 
 
-
-
